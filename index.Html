@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelvin Atsu Djayouri - Frontend Developer</title>
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fafb;
+            color: #111827;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2.5rem;
+        }
+
+        /* ===== LEFT SIDEBAR ===== */
+        .sidebar {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+            text-align: center;
+        }
+
+        /* PROFILE IMAGE REMOVED */
+
+        .sidebar h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #111827;
+        }
+
+        .sidebar .title {
+            color: #4f46e5;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .metric-card {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .skills-sidebar {
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .skill-category {
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-category h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #9ca3af;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+            text-align: left;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #4b5563;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            width: 20px;
+            color: #4f46e5;
+        }
+
+        .social-links-sidebar {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .social-links-sidebar a {
+            color: #6b7280;
+            font-size: 1.3rem;
+            transition: color 0.2s;
+        }
+
+        .social-links-sidebar a:hover {
+            color: #4f46e5;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #4f46e5;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-text {
+            color: #4b5563;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        /* Why Work With Me */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .value-card {
+            background: #f9fafb;
+            border-radius: 20px;
+            padding: 1.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-stat {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+        }
+
+        .value-label {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        /* Experience */
+        .timeline-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-header h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .timeline-sub {
+            color: #4f46e5;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-list {
+            list-style: none;
+        }
+
+        .timeline-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4b5563;
+        }
+
+        .timeline-list li::before {
+            content: '•';
+            color: #4f46e5;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #e0e7ff;
+            color: #4f46e5;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .project-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: #4f46e5;
+            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .project-feature {
+            background: #f3f4f6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #4b5563;
+        }
+
+        /* Blog */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .blog-card {
+            padding: 1.5rem;
+            border-radius: 16px;
+            background: #f9fafb;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Education */
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .edu-left h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-left p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .edu-right {
+            color: #4f46e5;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- LEFT SIDEBAR - NO IMAGE -->
+        <aside class="sidebar">
+            <!-- PROFILE IMAGE REMOVED -->
+
+            <h1>Kelvin Atsu Djayouri</h1>
+            <div class="title">Frontend Developer & CS Student</div>
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Accra, Ghana</span>
+            </div>
+
+            <!-- Metric Cards -->
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="metric-number">5+</div>
+                    <div class="metric-label">Projects</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">3+</div>
+                    <div class="metric-label">Technologies</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">2+</div>
+                    <div class="metric-label">Years Learning</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Passion</div>
+                </div>
+            </div>
+
+            <!-- Skills Sidebar -->
+            <div class="skills-sidebar">
+                <div class="skill-category">
+                    <h4>Frontend</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Tailwind</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Backend Basics</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Database</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Prisma</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Tools</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Postman</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>kelvinatsu213@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+233 123 456 789</span>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links-sidebar">
+                <a href="https://github.com/djayourikelvinatsu-hub/portfolio.git" target="_blank" title="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kelvin-atsu-djayouri-b129a739a" target="_blank" title="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/kelvin_atsud" target="_blank" title="Twitter"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://dev.to/k_djay_9363cecdb84567e13" target="_blank" title="Dev.to"><i
+                        class="fab fa-dev"></i></a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT (same as before) -->
+        <main class="main-content">
+            <!-- About Section -->
+            <section>
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    I'm a motivated Information Technology student at Accra Technical University and aspiring frontend
+                    developer with a passion for creating beautiful, functional web experiences. I build responsive and
+                    user-friendly websites using modern technologies and best practices.
+                </p>
+                <p class="about-text">
+                    My journey into web development started when I built my first HTML page in high school. Since then,
+                    I've been hooked on the creative and technical aspects of building for the web. I love turning
+                    complex problems into simple, elegant solutions.
+                </p>
+            </section>
+
+            <!-- Why Work With Me -->
+            <section>
+                <h2 class="section-title">Why Work With Me</h2>
+                <div class="value-grid">
+                    <div class="value-card">
+                        <h3>Fast Learner</h3>
+                        <p>Quickly adapt to new technologies and frameworks. Always eager to learn and improve.</p>
+                        <div class="value-stat">5+</div>
+                        <div class="value-label">Technologies Mastered</div>
+                    </div>
+                    <div class="value-card">
+                        <h3>Problem Solver</h3>
+                        <p>Love tackling complex challenges and finding elegant solutions through code.</p>
+                        <div class="value-stat">100+</div>
+                        <div class="value-label">Problems Solved</div>
+                    </div>
+                    <div class="value-card">
+                        <h3>Clean Code</h3>
+                        <p>Write maintainable, readable code following best practices and design patterns.</p>
+                        <div class="value-stat">100%</div>
+                        <div class="value-label">Code Quality</div>
+                    </div>
+                    <div class="value-card">
+                        <h3>User Focused</h3>
+                        <p>Create intuitive, accessible experiences that users love to interact with.</p>
+                        <div class="value-stat">5+</div>
+                        <div class="value-label">User-Centered Projects</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section>
+                <h2 class="section-title">Experience</h2>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Frontend Developer Intern</h3>
+                        <span class="timeline-date">2025 - Present</span>
+                    </div>
+                    <div class="timeline-sub">J&A · Remote</div>
+                    <ul class="timeline-list">
+                        <li>Built responsive websites and collaborated with design team to implement pixel-perfect
+                            interfaces.</li>
+                        <li>Improved website performance by optimizing images and implementing lazy loading.</li>
+                        <li>Collaborated with senior developers to learn best practices and modern development
+                            workflows.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Tailwind</span>
+                        <span class="tech-tag">Git</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Freelance Web Developer</h3>
+                        <span class="timeline-date">2024 - 2025</span>
+                    </div>
+                    <div class="timeline-sub">Self-employed · Remote</div>
+                    <ul class="timeline-list">
+                        <li>Created custom websites for small businesses and local clients, delivering responsive
+                            designs.</li>
+                        <li>Managed full project lifecycle from requirements gathering to deployment.</li>
+                        <li>Provided ongoing maintenance and support, ensuring client satisfaction.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">WordPress</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section>
+                <h2 class="section-title">Projects</h2>
+                <div class="project-grid">
+                    <!-- God's Eyes -->
+                    <div class="project-card">
+                        <h3>God's Eyes</h3>
+                        <p>Security surveillance dashboard with real-time monitoring and motion detection alerts.</p>
+                        <div class="project-features">
+                            <span class="project-feature">Real-time feeds</span>
+                            <span class="project-feature">Motion detection</span>
+                            <span class="project-feature">Incident reports</span>
+                        </div>
+                        <div class="tech-tags" style="margin-top: 1rem;">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">WebRTC</span>
+                        </div>
+                    </div>
+
+                    <!-- E-Commerce -->
+                    <div class="project-card">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-featured online store with product catalog, cart, and payment integration.</p>
+                        <div class="project-features">
+                            <span class="project-feature">Shopping cart</span>
+                            <span class="project-feature">User auth</span>
+                            <span class="project-feature">Stripe payments</span>
+                        </div>
+                        <div class="tech-tags" style="margin-top: 1rem;">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                    </div>
+
+                    <!-- Database Manager -->
+                    <div class="project-card">
+                        <h3>Database Manager</h3>
+                        <p>Custom database interface with interactive charts and data visualization.</p>
+                        <div class="project-features">
+                            <span class="project-feature">Data viz</span>
+                            <span class="project-feature">Query builder</span>
+                            <span class="project-feature">CSV export</span>
+                        </div>
+                        <div class="tech-tags" style="margin-top: 1rem;">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio -->
+                    <div class="project-card">
+                        <h3>Portfolio Website</h3>
+                        <p>Responsive portfolio with dark mode, animations, and multi-page layout.</p>
+                        <div class="project-features">
+                            <span class="project-feature">Dark mode</span>
+                            <span class="project-feature">Animations</span>
+                            <span class="project-feature">Responsive</span>
+                        </div>
+                        <div class="tech-tags" style="margin-top: 1rem;">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog -->
+            <section>
+                <h2 class="section-title">Latest Articles</h2>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Feb 13, 2026</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h4>Getting Started with React Hooks</h4>
+                        <p>Learn how to use useState, useEffect, and other React hooks to build better components.</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Feb 5, 2026</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h4>CSS Grid vs Flexbox</h4>
+                        <p>Understanding when to use CSS Grid and when to use Flexbox for your layouts.</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section>
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="edu-left">
+                        <h3>Information Technology</h3>
+                        <p>Accra Technical University</p>
+                    </div>
+                    <div class="edu-right">2024 - Present</div>
+                </div>
+                <div class="education-item">
+                    <div class="edu-left">
+                        <h3>Web Development Bootcamp</h3>
+                        <p>Self-directed Learning</p>
+                    </div>
+                    <div class="edu-right">2023 - 2024</div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
