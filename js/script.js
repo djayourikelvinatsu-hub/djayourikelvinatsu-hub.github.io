@@ -230,3 +230,102 @@ document.addEventListener('DOMContentLoaded', function () {
         footerYear.innerHTML = footerYear.innerHTML.replace('2026', year);
     }
 });
+
+// Project Modal Functions
+function openProjectModal(projectCard) {
+    const modal = document.getElementById('projectModal');
+    const projectId = projectCard.getAttribute('data-project-id');
+    const title = projectCard.getAttribute('data-title');
+    const status = projectCard.getAttribute('data-status');
+    const description = projectCard.getAttribute('data-description');
+    const featuresStr = projectCard.getAttribute('data-features');
+    const techStr = projectCard.getAttribute('data-tech');
+    const link = projectCard.getAttribute('data-link');
+    const repo = projectCard.getAttribute('data-repo');
+
+    // Set title and status
+    document.getElementById('modalTitle').textContent = title;
+    const statusElement = document.getElementById('modalStatus');
+    statusElement.textContent = status === 'completed' ? '✅ Completed' : '🚀 In Progress';
+    statusElement.classList.remove('completed');
+    if (status === 'completed') {
+        statusElement.classList.add('completed');
+    }
+
+    // Set description
+    document.getElementById('modalDescription').textContent = description;
+
+    // Set features
+    const features = featuresStr.split(',').map(f => f.trim());
+    const modalFeatures = document.getElementById('modalFeatures');
+    modalFeatures.innerHTML = '';
+    features.forEach(feature => {
+        const featureSpan = document.createElement('span');
+        featureSpan.className = 'modal-feature';
+        featureSpan.textContent = feature;
+        modalFeatures.appendChild(featureSpan);
+    });
+
+    // Set tech tags
+    const techs = techStr.split(',').map(t => t.trim());
+    const modalTech = document.getElementById('modalTech');
+    modalTech.innerHTML = '';
+    techs.forEach(tech => {
+        const techSpan = document.createElement('span');
+        techSpan.className = 'modal-tech-tag';
+        techSpan.innerHTML = `<i class="fas fa-code"></i>${tech}`;
+        modalTech.appendChild(techSpan);
+    });
+
+    // Set action buttons
+    const linkBtn = document.getElementById('modalLinkBtn');
+    const repoBtn = document.getElementById('modalRepoBtn');
+
+    if (link && link !== '') {
+        linkBtn.style.display = 'inline-flex';
+        linkBtn.href = link;
+    } else {
+        linkBtn.style.display = 'none';
+    }
+
+    if (repo && repo !== '') {
+        repoBtn.style.display = 'inline-flex';
+        repoBtn.href = repo;
+    } else {
+        repoBtn.style.display = 'none';
+    }
+
+    // Show modal
+    modal.classList.add('active');
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    modal.classList.remove('active');
+}
+
+// Add click handlers to project cards
+document.addEventListener('DOMContentLoaded', function () {
+    const projectCards = document.querySelectorAll('.project-card');
+    const modal = document.getElementById('projectModal');
+
+    projectCards.forEach(card => {
+        card.addEventListener('click', function () {
+            openProjectModal(this);
+        });
+    });
+
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function (event) {
+        if (event.target == modal) {
+            closeProjectModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeProjectModal();
+        }
+    });
+});

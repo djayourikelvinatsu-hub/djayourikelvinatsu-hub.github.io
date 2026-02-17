@@ -504,19 +504,28 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            var(--border-color);
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
             border-radius: 50px;
             padding: 1.5rem;
-            transition: all 0.2s;
+            transition: all 0.4s ease;
             aspect-ratio: 1.1/1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            cursor: pointer;
         }
 
         .project-card:hover {
             border-color: var(--primary-color);
-            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.1);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .project-card:active {
+            transform: translateY(-8px) scale(1.01);
         }
 
         .project-card h3 {
@@ -1455,14 +1464,236 @@
             }
         }
 
-        /* Tall Portrait Mode (for foldable phones) */
-        @media (min-aspect-ratio: 9/16) and (max-width: 600px) {
-            .container {
-                gap: 1rem;
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease-out;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 0.4s ease-out;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-status {
+            display: inline-block;
+            background: #fbbf24;
+            color: #78350f;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        html[data-theme="dark"] .modal-status {
+            background: #b45309;
+            color: #fef3c7;
+        }
+
+        .modal-status.completed {
+            background: #86efac;
+            color: #15803d;
+        }
+
+        html[data-theme="dark"] .modal-status.completed {
+            background: #22c55e;
+            color: #166534;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .modal-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .modal-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .modal-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .modal-feature {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .modal-tech-tag {
+            background: #e0e7ff;
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        html[data-theme="dark"] .modal-tech-tag {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .modal-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .modal-action:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Modal Media Queries */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 1.5rem;
+                width: 95%;
             }
 
-            .sidebar {
-                margin-bottom: 1rem;
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+                font-size: 1.5rem;
+                width: 36px;
+                height: 36px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-description {
+                font-size: 1rem;
+            }
+
+            .modal-section {
+                margin-bottom: 1.25rem;
+            }
+
+            .modal-action {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 1.25rem;
+                width: 98%;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            .modal-description {
+                font-size: 0.95rem;
+            }
+
+            .modal-features,
+            .modal-tech {
+                gap: 0.5rem;
+            }
+
+            .modal-feature,
+            .modal-tech-tag {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
             }
         }
     </style>
@@ -1682,7 +1913,10 @@
                 </p>
                 <div class="project-grid">
                     <!-- God's Eyes -->
-                    <div class="project-card">
+                    <div class="project-card" data-project-id="1" data-title="God's Eyes" data-status="ongoing"
+                        data-description="Security surveillance dashboard with real-time monitoring and motion detection alerts."
+                        data-features="Real-time feeds,Motion detection,Incident reports"
+                        data-tech="React,Node.js,WebRTC" data-link="">
                         <span class="project-status">🚀 Ongoing</span>
                         <h3>God's Eyes</h3>
                         <p>Security surveillance dashboard with real-time monitoring and motion detection alerts.</p>
@@ -1699,7 +1933,9 @@
                     </div>
 
                     <!-- E-Commerce -->
-                    <div class="project-card">
+                    <div class="project-card" data-project-id="2" data-title="E-Commerce Platform" data-status="ongoing"
+                        data-description="Full-featured online store with product catalog, cart, and payment integration."
+                        data-features="Shopping cart,User auth,Stripe payments" data-tech="React,Redux,Stripe">
                         <span class="project-status">🚀 Ongoing</span>
                         <h3>E-Commerce Platform</h3>
                         <p>Full-featured online store with product catalog, cart, and payment integration.</p>
@@ -1716,7 +1952,9 @@
                     </div>
 
                     <!-- Database Manager -->
-                    <div class="project-card">
+                    <div class="project-card" data-project-id="3" data-title="Database Manager" data-status="ongoing"
+                        data-description="Custom database interface with interactive charts and data visualization."
+                        data-features="Data viz,Query builder,CSV export" data-tech="React,D3.js,PostgreSQL">
                         <span class="project-status">🚀 Ongoing</span>
                         <h3>Database Manager</h3>
                         <p>Custom database interface with interactive charts and data visualization.</p>
@@ -1733,7 +1971,12 @@
                     </div>
 
                     <!-- Portfolio -->
-                    <div class="project-card">
+                    <div class="project-card" data-project-id="4" data-title="Portfolio Website" data-status="completed"
+                        data-description="Responsive portfolio showcase with dark mode toggle, smooth animations, intersection observer for scroll effects, and comprehensive mobile responsiveness."
+                        data-features="Dark mode toggle,Smooth animations,Responsive design (360px-1920px),Intersection Observer,Mobile optimized"
+                        data-tech="HTML5,CSS3,JavaScript,Font Awesome,Google Fonts"
+                        data-link="https://djayourikelvinatsu-hub.github.io"
+                        data-repo="https://github.com/djayourikelvinatsu-hub/my_portfolio">
                         <span class="project-status">✅ Completed</span>
                         <h3>Portfolio Website</h3>
                         <p>Responsive portfolio with dark mode, animations, and multi-page layout.</p>
@@ -1829,6 +2072,39 @@
             </section>
         </main>
     </div>
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            <div class="modal-header">
+                <span class="modal-status" id="modalStatus"></span>
+                <h2 class="modal-title" id="modalTitle"></h2>
+            </div>
+            <p class="modal-description" id="modalDescription"></p>
+
+            <div class="modal-section">
+                <div class="modal-section-title">Key Features</div>
+                <div class="modal-features" id="modalFeatures"></div>
+            </div>
+
+            <div class="modal-section">
+                <div class="modal-section-title">Technologies Used</div>
+                <div class="modal-tech" id="modalTech"></div>
+            </div>
+
+            <div class="modal-section">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a id="modalLinkBtn" href="#" class="modal-action" style="display: none;" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>View Project
+                    </a>
+                    <a id="modalRepoBtn" href="#" class="modal-action" style="display: none;" target="_blank">
+                        <i class="fab fa-github"></i>View Repository
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
 </body>
 
