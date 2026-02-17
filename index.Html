@@ -124,6 +124,13 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tag i {
+            font-size: 1rem;
         }
 
         .contact-info {
@@ -297,6 +304,13 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tech-tag i {
+            font-size: 0.85rem;
         }
 
         /* Projects */
@@ -309,9 +323,13 @@
 
         .project-card {
             border: 1px solid #e5e7eb;
-            border-radius: 20px;
+            border-radius: 50px;
             padding: 1.5rem;
             transition: all 0.2s;
+            aspect-ratio: 1.1/1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .project-card:hover {
@@ -416,6 +434,113 @@
             font-weight: 500;
         }
 
+        /* Contact Section */
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-method {
+            background: #f9fafb;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-method i {
+            font-size: 2.5rem;
+            color: #4f46e5;
+            margin-bottom: 1rem;
+        }
+
+        .contact-method h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .contact-method a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-method a:hover {
+            color: #4338ca;
+        }
+
+        .social-links-main {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links-main a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #4f46e5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .social-links-main a:hover {
+            background: #4338ca;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: 2rem;
+            border-radius: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background: #f9fafb;
+            color: #4f46e5;
+        }
+
+        .nav-links a.active {
+            background: #4f46e5;
+            color: white;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .container {
@@ -438,6 +563,18 @@
 </head>
 
 <body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="#about" class="nav-link active">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#blog" class="nav-link">Blog</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- LEFT SIDEBAR - NO IMAGE -->
         <aside class="sidebar">
@@ -475,37 +612,37 @@
                 <div class="skill-category">
                     <h4>Frontend</h4>
                     <div class="skill-tags">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">Tailwind</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag"><i class="fab fa-react"></i>React</span>
+                        <span class="skill-tag"><i class="fab fa-js-square"></i>TypeScript</span>
+                        <span class="skill-tag"><i class="fab fa-react"></i>Next.js</span>
+                        <span class="skill-tag"><i class="fab fa-css3-alt"></i>Tailwind</span>
+                        <span class="skill-tag"><i class="fab fa-html5"></i>HTML5</span>
+                        <span class="skill-tag"><i class="fab fa-css3"></i>CSS3</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h4>Backend Basics</h4>
                     <div class="skill-tags">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express</span>
-                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag"><i class="fab fa-node-js"></i>Node.js</span>
+                        <span class="skill-tag"><i class="fas fa-server"></i>Express</span>
+                        <span class="skill-tag"><i class="fas fa-plug"></i>REST APIs</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h4>Database</h4>
                     <div class="skill-tags">
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Prisma</span>
+                        <span class="skill-tag"><i class="fas fa-leaf"></i>MongoDB</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i>PostgreSQL</span>
+                        <span class="skill-tag"><i class="fas fa-cube"></i>Prisma</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h4>Tools</h4>
                     <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag"><i class="fab fa-git-alt"></i>Git</span>
+                        <span class="skill-tag"><i class="fab fa-github"></i>GitHub</span>
+                        <span class="skill-tag"><i class="fas fa-code"></i>VS Code</span>
+                        <span class="skill-tag"><i class="fas fa-envelope"></i>Postman</span>
                     </div>
                 </div>
             </div>
@@ -537,7 +674,7 @@
         <!-- MAIN CONTENT (same as before) -->
         <main class="main-content">
             <!-- About Section -->
-            <section>
+            <section id="about">
                 <h2 class="section-title">About Me</h2>
                 <p class="about-text">
                     I'm a motivated Information Technology student at Accra Technical University and aspiring frontend
@@ -583,7 +720,7 @@
             </section>
 
             <!-- Experience -->
-            <section>
+            <section id="experience">
                 <h2 class="section-title">Experience</h2>
 
                 <div class="timeline-item">
@@ -600,10 +737,10 @@
                             workflows.</li>
                     </ul>
                     <div class="tech-tags">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Tailwind</span>
-                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag"><i class="fab fa-react"></i>React</span>
+                        <span class="tech-tag"><i class="fab fa-js-square"></i>TypeScript</span>
+                        <span class="tech-tag"><i class="fab fa-css3-alt"></i>Tailwind</span>
+                        <span class="tech-tag"><i class="fab fa-git-alt"></i>Git</span>
                     </div>
                 </div>
 
@@ -620,16 +757,16 @@
                         <li>Provided ongoing maintenance and support, ensuring client satisfaction.</li>
                     </ul>
                     <div class="tech-tags">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag"><i class="fab fa-html5"></i>HTML5</span>
+                        <span class="tech-tag"><i class="fab fa-css3"></i>CSS3</span>
+                        <span class="tech-tag"><i class="fab fa-js"></i>JavaScript</span>
+                        <span class="tech-tag"><i class="fab fa-wordpress"></i>WordPress</span>
                     </div>
                 </div>
             </section>
 
             <!-- Projects -->
-            <section>
+            <section id="projects">
                 <h2 class="section-title">Projects</h2>
                 <div class="project-grid">
                     <!-- God's Eyes -->
@@ -642,9 +779,9 @@
                             <span class="project-feature">Incident reports</span>
                         </div>
                         <div class="tech-tags" style="margin-top: 1rem;">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">WebRTC</span>
+                            <span class="tech-tag"><i class="fab fa-react"></i>React</span>
+                            <span class="tech-tag"><i class="fab fa-node-js"></i>Node.js</span>
+                            <span class="tech-tag"><i class="fas fa-video"></i>WebRTC</span>
                         </div>
                     </div>
 
@@ -658,9 +795,9 @@
                             <span class="project-feature">Stripe payments</span>
                         </div>
                         <div class="tech-tags" style="margin-top: 1rem;">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Redux</span>
-                            <span class="tech-tag">Stripe</span>
+                            <span class="tech-tag"><i class="fab fa-react"></i>React</span>
+                            <span class="tech-tag"><i class="fas fa-box"></i>Redux</span>
+                            <span class="tech-tag"><i class="fas fa-credit-card"></i>Stripe</span>
                         </div>
                     </div>
 
@@ -674,9 +811,9 @@
                             <span class="project-feature">CSV export</span>
                         </div>
                         <div class="tech-tags" style="margin-top: 1rem;">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag"><i class="fab fa-react"></i>React</span>
+                            <span class="tech-tag"><i class="fas fa-chart-bar"></i>D3.js</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i>PostgreSQL</span>
                         </div>
                     </div>
 
@@ -690,16 +827,16 @@
                             <span class="project-feature">Responsive</span>
                         </div>
                         <div class="tech-tags" style="margin-top: 1rem;">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag"><i class="fab fa-html5"></i>HTML5</span>
+                            <span class="tech-tag"><i class="fab fa-css3"></i>CSS3</span>
+                            <span class="tech-tag"><i class="fab fa-js"></i>JavaScript</span>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Blog -->
-            <section>
+            <section id="blog">
                 <h2 class="section-title">Latest Articles</h2>
                 <div class="blog-grid">
                     <div class="blog-card">
@@ -724,7 +861,7 @@
             </section>
 
             <!-- Education -->
-            <section>
+            <section id="education">
                 <h2 class="section-title">Education</h2>
                 <div class="education-item">
                     <div class="edu-left">
@@ -739,6 +876,39 @@
                         <p>Self-directed Learning</p>
                     </div>
                     <div class="edu-right">2023 - 2024</div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="about-text">
+                    I'd love to hear from you! Whether you have a question, project idea, or just want to connect, feel
+                    free to reach out.
+                </p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:kelvinatsu213@gmail.com">kelvinatsu213@gmail.com</a></p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p><a href="tel:+233592921133">+233 592921133</a></p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Accra, Ghana</p>
+                    </div>
+                </div>
+                <div class="social-links-main">
+                    <a href="https://github.com/kelvinatsu" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/kelvin-atsu-djayouri-b129a739a" target="_blank"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://twitter.com/kelvin_atsud" target="_blank"><i class="fab fa-twitter"></i>
+                        Twitter</a>
                 </div>
             </section>
         </main>
