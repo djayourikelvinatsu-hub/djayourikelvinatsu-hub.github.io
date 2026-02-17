@@ -9,6 +9,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+            --primary-color: #4f46e5;
+            --primary-dark: #4338ca;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        html[data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-light: #94a3b8;
+            --border-color: #334155;
+            --card-bg: #1e293b;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +41,10 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f9fafb;
-            color: #111827;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .container {
@@ -33,10 +58,10 @@
 
         /* ===== LEFT SIDEBAR ===== */
         .sidebar {
-            background: white;
+            background: var(--card-bg);
             border-radius: 24px;
             padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             height: fit-content;
             position: sticky;
             top: 2rem;
@@ -49,11 +74,11 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 0.25rem;
-            color: #111827;
+            color: var(--text-primary);
         }
 
         .sidebar .title {
-            color: #4f46e5;
+            color: var(--primary-color);
             font-weight: 600;
             font-size: 1.1rem;
             margin-bottom: 1rem;
@@ -64,7 +89,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
@@ -77,7 +102,7 @@
         }
 
         .metric-card {
-            background: #f9fafb;
+            background: var(--bg-secondary);
             border-radius: 16px;
             padding: 1rem;
             text-align: center;
@@ -86,12 +111,12 @@
         .metric-number {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #4f46e5;
+            color: var(--primary-color);
         }
 
         .metric-label {
             font-size: 0.85rem;
-            color: #6b7280;
+            color: var(--text-secondary);
         }
 
         .skills-sidebar {
@@ -107,7 +132,7 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: #9ca3af;
+            color: var(--text-light);
             margin-bottom: 0.75rem;
         }
 
@@ -118,8 +143,8 @@
         }
 
         .skill-tag {
-            background: #f3f4f6;
-            color: #374151;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -136,7 +161,7 @@
         .contact-info {
             margin-top: 2rem;
             padding-top: 1.5rem;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border-color);
             text-align: left;
         }
 
@@ -144,14 +169,14 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            color: #4b5563;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             margin-bottom: 1rem;
         }
 
         .contact-item i {
             width: 20px;
-            color: #4f46e5;
+            color: var(--primary-color);
         }
 
         .social-links-sidebar {
@@ -162,21 +187,21 @@
         }
 
         .social-links-sidebar a {
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 1.3rem;
             transition: color 0.2s;
         }
 
         .social-links-sidebar a:hover {
-            color: #4f46e5;
+            color: var(--primary-color);
         }
 
         /* ===== MAIN CONTENT ===== */
         .main-content {
-            background: white;
+            background: var(--card-bg);
             border-radius: 24px;
             padding: 2.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .section-title {
@@ -194,13 +219,13 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background: #4f46e5;
+            background: var(--primary-color);
             border-radius: 2px;
         }
 
         /* About Section */
         .about-text {
-            color: #4b5563;
+            color: var(--text-secondary);
             margin-bottom: 2rem;
             font-size: 1.05rem;
         }
@@ -214,7 +239,7 @@
         }
 
         .value-card {
-            background: #f9fafb;
+            background: var(--bg-secondary);
             border-radius: 20px;
             padding: 1.5rem;
         }
@@ -226,7 +251,7 @@
         }
 
         .value-card p {
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             margin-bottom: 1rem;
         }
@@ -234,12 +259,12 @@
         .value-stat {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #4f46e5;
+            color: var(--primary-color);
         }
 
         .value-label {
             font-size: 0.85rem;
-            color: #9ca3af;
+            color: var(--text-light);
         }
 
         /* Experience */
@@ -261,12 +286,12 @@
         }
 
         .timeline-date {
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
         .timeline-sub {
-            color: #4f46e5;
+            color: var(--primary-color);
             font-weight: 500;
             margin-bottom: 1rem;
         }
@@ -279,12 +304,12 @@
             margin-bottom: 0.75rem;
             padding-left: 1.5rem;
             position: relative;
-            color: #4b5563;
+            color: var(--text-secondary);
         }
 
         .timeline-list li::before {
             content: '•';
-            color: #4f46e5;
+            color: var(--primary-color);
             font-weight: bold;
             position: absolute;
             left: 0;
@@ -299,7 +324,7 @@
 
         .tech-tag {
             background: #e0e7ff;
-            color: #4f46e5;
+            color: var(--primary-color);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -307,6 +332,11 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+        }
+
+        html[data-theme="dark"] .tech-tag {
+            background: var(--primary-color);
+            color: white;
         }
 
         .tech-tag i {
@@ -318,11 +348,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .project-card {
-            border: 1px solid #e5e7eb;
+            var(--border-color);
             border-radius: 50px;
             padding: 1.5rem;
             transition: all 0.2s;
@@ -333,13 +359,18 @@
         }
 
         .project-card:hover {
-            border-color: #4f46e5;
+            border-color: var(--primary-color);
             box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.1);
         }
 
         .project-card h3 {
             font-size: 1.2rem;
             font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary)00;
             margin-bottom: 0.75rem;
         }
 
@@ -357,6 +388,13 @@
         }
 
         .project-feature {
+
+
+            html[data-theme="dark"] .project-feature {
+                background: var(--bg-secondary);
+                color: var(--text-secondary);
+            }
+
             background: #f3f4f6;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
@@ -372,16 +410,13 @@
             margin: 2rem 0;
         }
 
-        .blog-card {
-            padding: 1.5rem;
-            border-radius: 16px;
-            background: #f9fafb;
+        var(--bg-secondary);
         }
 
         .blog-meta {
             display: flex;
             gap: 1rem;
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 0.85rem;
             margin-bottom: 0.75rem;
         }
@@ -393,8 +428,13 @@
         }
 
         .blog-card p {
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: var(--primary-color)rem;
             margin-bottom: 1rem;
         }
 
@@ -439,11 +479,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .contact-method {
-            background: #f9fafb;
+            var(--bg-secondary);
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
@@ -451,7 +487,7 @@
 
         .contact-method i {
             font-size: 2.5rem;
-            color: #4f46e5;
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
@@ -462,19 +498,19 @@
         }
 
         .contact-method p {
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
         .contact-method a {
-            color: #4f46e5;
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .contact-method a:hover {
-            color: #4338ca;
+            color: var(--primary-dark);
         }
 
         .social-links-main {
@@ -489,7 +525,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: #4f46e5;
+            background: var(--primary-color);
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 20px;
@@ -499,13 +535,12 @@
         }
 
         .social-links-main a:hover {
-            background: #4338ca;
+            background: var(--primary-dark) transition: background 0.3s;
         }
 
-        /* Navigation Bar */
-        .nav-bar {
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        .social-links-main a:hover {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -523,7 +558,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #4b5563;
+            color: var(--text-primary);
             font-weight: 500;
             padding: 0.75rem 1.5rem;
             border-radius: 20px;
@@ -532,8 +567,35 @@
         }
 
         .nav-links a:hover {
-            background: #f9fafb;
-            color: #4f46e5;
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-secondary);
+            border-color: var(--primary-color);
+            color: var(--primary-color)e5;
         }
 
         .nav-links a.active {
@@ -572,6 +634,9 @@
             <a href="#blog" class="nav-link">Blog</a>
             <a href="#education" class="nav-link">Education</a>
             <a href="#contact" class="nav-link">Contact</a>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
+                <i class="fas fa-sun"></i>
+            </button>
         </div>
     </nav>
 
