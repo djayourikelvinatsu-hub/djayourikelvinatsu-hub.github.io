@@ -54,7 +54,18 @@ document.addEventListener('DOMContentLoaded', function () {
             const seconds = now.getSeconds().toString().padStart(2, '0');
             const ampm = hours >= 12 ? 'PM' : 'AM';
             const displayHours = hours % 12 || 12;
-            timeElement.textContent = `${displayHours}:${minutes}:${seconds} ${ampm}`;
+
+            // Check if on mobile (screen width < 768px)
+            const isMobile = window.innerWidth < 768;
+
+            if (isMobile) {
+                // Shorter format for mobile: HH:MM AM/PM
+                timeElement.textContent = `${displayHours}:${minutes} ${ampm}`;
+            } else {
+                // Full format for desktop: HH:MM:SS AM/PM
+                timeElement.textContent = `${displayHours}:${minutes}:${seconds} ${ampm}`;
+            }
+
             timeElement.style.display = 'inline'; // Ensure it's visible
         }
     }
