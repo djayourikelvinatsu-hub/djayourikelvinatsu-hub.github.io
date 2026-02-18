@@ -43,6 +43,23 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
+
+    // Real-time Clock
+    function updateClock() {
+        const now = new Date();
+        const timeElement = document.getElementById('time');
+        if (timeElement) {
+            const hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const displayHours = hours % 12 || 12;
+            timeElement.textContent = `${displayHours}:${minutes}:${seconds} ${ampm}`;
+        }
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
 });
 
 // Navigation Active Link Highlighting
