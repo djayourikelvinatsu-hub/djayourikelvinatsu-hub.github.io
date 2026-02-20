@@ -1,4 +1,4 @@
-# 👨‍💻 Kelvin Atsu Djayouri - Portfolio
+# 👨💻 Kelvin Atsu Djayouri - Portfolio
 
 ![Portfolio Screenshot](images/portfolio-preview.jpg)
 
@@ -20,7 +20,7 @@ Personal portfolio website showcasing my projects and skills as a Frontend Devel
 - Font Awesome Icons
 
 ## 📱 Live Demo
-[View Live Site](https://yourdomain.com)
+[View Live Site](https://djayourikelvinatsu-hub.github.io/)
 
 ## 📧 Contact
 - Email: kelvinatsu213@gmail.com
