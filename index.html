@@ -1,36 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KAD - Frontend Developer</title>
     <!-- Font Awesome & Google Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
     <style>
         :root {
-            --bg-primary: #fcfcfc;
-            --bg-secondary: #f6f6f6;
-            --text-primary: #3e5092;
-            --text-secondary: #04060b;
-            --text-light: #1d58be;
-            --border-color: #e5e7eb;
+            --bg-primary: #f9fafb;
+            --bg-secondary: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-light: #9ca3af;
+            --border-color: var(--border-color);
             --card-bg: #ffffff;
             --primary-color: #4f46e5;
-            --primary-dark: #4338ca;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --primary-dark: #3730a3;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
         }
 
         html[data-theme="dark"] {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --text-light: #94a3b8;
-            --border-color: #334155;
+            --bg-primary: #0b0f19;
+            --bg-secondary: #111827;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-light: #9ca3af;
+            --border-color: #1f2937;
             --card-bg: #1e293b;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --primary-color: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
         }
 
         * {
@@ -170,11 +173,13 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: "Inter", sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
+            transition:
+                background-color 0.3s,
+                color 0.3s;
         }
 
         .container {
@@ -357,7 +362,7 @@
         }
 
         .section-title::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;
@@ -458,7 +463,7 @@
         }
 
         .timeline-list li::before {
-            content: '•';
+            content: "•";
             color: var(--primary-color);
             font-weight: bold;
             position: absolute;
@@ -473,7 +478,7 @@
         }
 
         .tech-tag {
-            background: #e0e7ff;
+            background: var(--bg-secondary);
             color: var(--primary-color);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
@@ -550,8 +555,8 @@
 
         .project-status {
             display: inline-block;
-            background: #fbbf24;
-            color: #78350f;
+            background: var(--primary-color);
+            color: var(--bg-primary);
             padding: 0.3rem 0.75rem;
             border-radius: 20px;
             font-size: 0.75rem;
@@ -562,17 +567,12 @@
         }
 
         html[data-theme="dark"] .project-status {
-            background: #b45309;
-            color: #fef3c7;
+            background: var(--primary-dark);
+            color: var(--text-primary);
         }
 
         .project-card p {
-            color: var(--text-secondary)00;
-            margin-bottom: 0.75rem;
-        }
-
-        .project-card p {
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             margin-bottom: 1rem;
         }
@@ -585,18 +585,16 @@
         }
 
         .project-feature {
-
-
-            html[data-theme="dark"] .project-feature {
-                background: var(--bg-secondary);
-                color: var(--text-secondary);
-            }
-
-            background: #f3f4f6;
+            background: var(--bg-secondary);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.8rem;
-            color: #4b5563;
+            color: var(--text-secondary);
+        }
+
+        html[data-theme="dark"] .project-feature {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
         }
 
         /* Blog */
@@ -607,7 +605,10 @@
             margin: 2rem 0;
         }
 
-        var(--bg-secondary);
+        .blog-card {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 1.5rem;
         }
 
         .blog-meta {
@@ -631,12 +632,7 @@
         }
 
         .blog-link {
-            color: var(--primary-color)rem;
-            margin-bottom: 1rem;
-        }
-
-        .blog-link {
-            color: #4f46e5;
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
@@ -648,7 +644,7 @@
             justify-content: space-between;
             align-items: baseline;
             padding: 1rem 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .education-item:last-child {
@@ -662,12 +658,12 @@
         }
 
         .edu-left p {
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
         .edu-right {
-            color: #4f46e5;
+            color: var(--primary-color);
             font-weight: 500;
         }
 
@@ -676,7 +672,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            var(--bg-secondary);
+            background: var(--bg-secondary);
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
@@ -732,17 +728,7 @@
         }
 
         .social-links-main a:hover {
-            background: var(--primary-dark) transition: background 0.3s;
-        }
-
-        .social-links-main a:hover {
-            background: var(--card-bg);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            margin-bottom: 2rem;
-            border-radius: 24px;
+            background: var(--primary-dark);
         }
 
         .nav-links {
@@ -860,7 +846,7 @@
             color: var(--text-primary);
             font-weight: 500;
             font-size: 0.9rem;
-            font-family: 'Courier New', monospace;
+            font-family: "Courier New", monospace;
         }
 
         .clock i {
@@ -1327,7 +1313,7 @@
                 font-size: 0.7rem;
                 gap: 0.2rem;
                 flex-shrink: 0;
-                font-family: 'Courier New', monospace;
+                font-family: "Courier New", monospace;
                 margin-right: 0.5rem;
             }
 
@@ -1607,8 +1593,8 @@
 
         .modal-status {
             display: inline-block;
-            background: #fbbf24;
-            color: #78350f;
+            background: var(--primary-color);
+            color: var(--bg-primary);
             padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -1619,18 +1605,18 @@
         }
 
         html[data-theme="dark"] .modal-status {
-            background: #b45309;
-            color: #fef3c7;
+            background: var(--primary-dark);
+            color: var(--text-primary);
         }
 
         .modal-status.completed {
-            background: #86efac;
-            color: #15803d;
+            background: var(--primary-color);
+            color: var(--bg-primary);
         }
 
         html[data-theme="dark"] .modal-status.completed {
-            background: #22c55e;
-            color: #166534;
+            background: var(--primary-dark);
+            color: var(--text-primary);
         }
 
         .modal-title {
@@ -1683,7 +1669,7 @@
         }
 
         .modal-tech-tag {
-            background: #e0e7ff;
+            background: var(--bg-secondary);
             color: var(--primary-color);
             padding: 0.5rem 1rem;
             border-radius: 20px;
@@ -1903,13 +1889,16 @@
             <section id="about">
                 <h2 class="section-title">About Me</h2>
                 <p class="about-text">
-                    I'm a motivated Information Technology student at Accra Technical University and aspiring frontend
-                    developer with a passion for creating beautiful, functional web experiences. I build responsive and
-                    user-friendly websites using modern technologies and best practices.
+                    I'm a motivated Information Technology student at Accra Technical
+                    University and aspiring frontend developer with a passion for
+                    creating beautiful, functional web experiences. I build responsive
+                    and user-friendly websites using modern technologies and best
+                    practices.
                 </p>
                 <p class="about-text">
-                    My journey into web development started when I built my first HTML page in high school. Since then,
-                    I've been hooked on the creative and technical aspects of building for the web. I love turning
+                    My journey into web development started when I built my first HTML
+                    page in high school. Since then, I've been hooked on the creative
+                    and technical aspects of building for the web. I love turning
                     complex problems into simple, elegant solutions.
                 </p>
             </section>
@@ -1920,25 +1909,37 @@
                 <div class="value-grid">
                     <div class="value-card">
                         <h3>Fast Learner</h3>
-                        <p>Quickly adapt to new technologies and frameworks. Always eager to learn and improve.</p>
+                        <p>
+                            Quickly adapt to new technologies and frameworks. Always eager
+                            to learn and improve.
+                        </p>
                         <div class="value-stat">5+</div>
                         <div class="value-label">Technologies Mastered</div>
                     </div>
                     <div class="value-card">
                         <h3>Problem Solver</h3>
-                        <p>Love tackling complex challenges and finding elegant solutions through code.</p>
+                        <p>
+                            Love tackling complex challenges and finding elegant solutions
+                            through code.
+                        </p>
                         <div class="value-stat">100+</div>
                         <div class="value-label">Problems Solved</div>
                     </div>
                     <div class="value-card">
                         <h3>Clean Code</h3>
-                        <p>Write maintainable, readable code following best practices and design patterns.</p>
+                        <p>
+                            Write maintainable, readable code following best practices and
+                            design patterns.
+                        </p>
                         <div class="value-stat">100%</div>
                         <div class="value-label">Code Quality</div>
                     </div>
                     <div class="value-card">
                         <h3>User Focused</h3>
-                        <p>Create intuitive, accessible experiences that users love to interact with.</p>
+                        <p>
+                            Create intuitive, accessible experiences that users love to
+                            interact with.
+                        </p>
                         <div class="value-stat">5+</div>
                         <div class="value-label">User-Centered Projects</div>
                     </div>
@@ -1956,11 +1957,18 @@
                     </div>
                     <div class="timeline-sub">J&A · Remote</div>
                     <ul class="timeline-list">
-                        <li>Built responsive websites and collaborated with design team to implement pixel-perfect
-                            interfaces.</li>
-                        <li>Improved website performance by optimizing images and implementing lazy loading.</li>
-                        <li>Collaborated with senior developers to learn best practices and modern development
-                            workflows.</li>
+                        <li>
+                            Built responsive websites and collaborated with design team to
+                            implement pixel-perfect interfaces.
+                        </li>
+                        <li>
+                            Improved website performance by optimizing images and
+                            implementing lazy loading.
+                        </li>
+                        <li>
+                            Collaborated with senior developers to learn best practices and
+                            modern development workflows.
+                        </li>
                     </ul>
                     <div class="tech-tags">
                         <span class="tech-tag"><i class="fab fa-react"></i>React</span>
@@ -1977,10 +1985,18 @@
                     </div>
                     <div class="timeline-sub">Self-employed · Remote</div>
                     <ul class="timeline-list">
-                        <li>Created custom websites for small businesses and local clients, delivering responsive
-                            designs.</li>
-                        <li>Managed full project lifecycle from requirements gathering to deployment.</li>
-                        <li>Provided ongoing maintenance and support, ensuring client satisfaction.</li>
+                        <li>
+                            Created custom websites for small businesses and local clients,
+                            delivering responsive designs.
+                        </li>
+                        <li>
+                            Managed full project lifecycle from requirements gathering to
+                            deployment.
+                        </li>
+                        <li>
+                            Provided ongoing maintenance and support, ensuring client
+                            satisfaction.
+                        </li>
                     </ul>
                     <div class="tech-tags">
                         <span class="tech-tag"><i class="fab fa-html5"></i>HTML5</span>
@@ -1994,43 +2010,32 @@
             <!-- Projects -->
             <section id="projects">
                 <h2 class="section-title">My Projects</h2>
-                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.05rem;">
-                    Here are the projects I'm working on and have completed. Click on any project to learn more.
+                <p style="
+              text-align: center;
+              color: var(--text-secondary);
+              margin-bottom: 2rem;
+              font-size: 1.05rem;
+            ">
+                    Here are the projects I'm working on and have completed. Click on
+                    any project to learn more.
                 </p>
                 <div class="project-grid">
-                    <!-- God's Eyes -->
-                    <div class="project-card" data-project-id="1" data-title="God's Eyes" data-status="ongoing"
-                        data-description="Security surveillance dashboard with real-time monitoring and motion detection alerts."
-                        data-features="Real-time feeds,Motion detection,Incident reports"
-                        data-tech="React,Node.js,WebRTC" data-link="">
-                        <span class="project-status">🚀 Ongoing</span>
-                        <h3>God's Eyes</h3>
-                        <p>Security surveillance dashboard with real-time monitoring and motion detection alerts.</p>
-                        <div class="project-features">
-                            <span class="project-feature">Real-time feeds</span>
-                            <span class="project-feature">Motion detection</span>
-                            <span class="project-feature">Incident reports</span>
-                        </div>
-                        <div class="tech-tags" style="margin-top: 1rem;">
-                            <span class="tech-tag"><i class="fab fa-react"></i>React</span>
-                            <span class="tech-tag"><i class="fab fa-node-js"></i>Node.js</span>
-                            <span class="tech-tag"><i class="fas fa-video"></i>WebRTC</span>
-                        </div>
-                    </div>
-
                     <!-- E-Commerce -->
                     <div class="project-card" data-project-id="2" data-title="E-Commerce Platform" data-status="ongoing"
                         data-description="Full-featured online store with product catalog, cart, and payment integration."
                         data-features="Shopping cart,User auth,Stripe payments" data-tech="React,Redux,Stripe">
                         <span class="project-status">🚀 Ongoing</span>
                         <h3>E-Commerce Platform</h3>
-                        <p>Full-featured online store with product catalog, cart, and payment integration.</p>
+                        <p>
+                            Full-featured online store with product catalog, cart, and
+                            payment integration.
+                        </p>
                         <div class="project-features">
                             <span class="project-feature">Shopping cart</span>
                             <span class="project-feature">User auth</span>
                             <span class="project-feature">Stripe payments</span>
                         </div>
-                        <div class="tech-tags" style="margin-top: 1rem;">
+                        <div class="tech-tags" style="margin-top: 1rem">
                             <span class="tech-tag"><i class="fab fa-react"></i>React</span>
                             <span class="tech-tag"><i class="fas fa-box"></i>Redux</span>
                             <span class="tech-tag"><i class="fas fa-credit-card"></i>Stripe</span>
@@ -2043,13 +2048,16 @@
                         data-features="Data viz,Query builder,CSV export" data-tech="React,D3.js,PostgreSQL">
                         <span class="project-status">🚀 Ongoing</span>
                         <h3>Database Manager</h3>
-                        <p>Custom database interface with interactive charts and data visualization.</p>
+                        <p>
+                            Custom database interface with interactive charts and data
+                            visualization.
+                        </p>
                         <div class="project-features">
                             <span class="project-feature">Data viz</span>
                             <span class="project-feature">Query builder</span>
                             <span class="project-feature">CSV export</span>
                         </div>
-                        <div class="tech-tags" style="margin-top: 1rem;">
+                        <div class="tech-tags" style="margin-top: 1rem">
                             <span class="tech-tag"><i class="fab fa-react"></i>React</span>
                             <span class="tech-tag"><i class="fas fa-chart-bar"></i>D3.js</span>
                             <span class="tech-tag"><i class="fas fa-database"></i>PostgreSQL</span>
@@ -2065,13 +2073,16 @@
                         data-repo="https://github.com/djayourikelvinatsu-hub/my_portfolio">
                         <span class="project-status">✅ Completed</span>
                         <h3>Portfolio Website</h3>
-                        <p>Responsive portfolio with dark mode, animations, and multi-page layout.</p>
+                        <p>
+                            Responsive portfolio with dark mode, animations, and multi-page
+                            layout.
+                        </p>
                         <div class="project-features">
                             <span class="project-feature">Dark mode</span>
                             <span class="project-feature">Animations</span>
                             <span class="project-feature">Responsive</span>
                         </div>
-                        <div class="tech-tags" style="margin-top: 1rem;">
+                        <div class="tech-tags" style="margin-top: 1rem">
                             <span class="tech-tag"><i class="fab fa-html5"></i>HTML5</span>
                             <span class="tech-tag"><i class="fab fa-css3"></i>CSS3</span>
                             <span class="tech-tag"><i class="fab fa-js"></i>JavaScript</span>
@@ -2090,7 +2101,10 @@
                             <span><i class="far fa-clock"></i> 5 min read</span>
                         </div>
                         <h4>Getting Started with React Hooks</h4>
-                        <p>Learn how to use useState, useEffect, and other React hooks to build better components.</p>
+                        <p>
+                            Learn how to use useState, useEffect, and other React hooks to
+                            build better components.
+                        </p>
                         <a href="#" class="blog-link">Read More →</a>
                     </div>
                     <div class="blog-card">
@@ -2099,7 +2113,10 @@
                             <span><i class="far fa-clock"></i> 7 min read</span>
                         </div>
                         <h4>CSS Grid vs Flexbox</h4>
-                        <p>Understanding when to use CSS Grid and when to use Flexbox for your layouts.</p>
+                        <p>
+                            Understanding when to use CSS Grid and when to use Flexbox for
+                            your layouts.
+                        </p>
                         <a href="#" class="blog-link">Read More →</a>
                     </div>
                 </div>
@@ -2128,14 +2145,16 @@
             <section id="contact">
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="about-text">
-                    I'd love to hear from you! Whether you have a question, project idea, or just want to connect, feel
-                    free to reach out.
+                    I'd love to hear from you! Whether you have a question, project
+                    idea, or just want to connect, feel free to reach out.
                 </p>
                 <div class="contact-methods">
                     <div class="contact-method">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:kelvinatsu213@gmail.com">kelvinatsu213@gmail.com</a></p>
+                        <p>
+                            <a href="mailto:kelvinatsu213@gmail.com">kelvinatsu213@gmail.com</a>
+                        </p>
                     </div>
                     <div class="contact-method">
                         <i class="fas fa-phone"></i>
@@ -2162,7 +2181,9 @@
     <!-- Project Modal -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            <button class="modal-close" onclick="closeProjectModal()">
+                &times;
+            </button>
             <div class="modal-header">
                 <span class="modal-status" id="modalStatus"></span>
                 <h2 class="modal-title" id="modalTitle"></h2>
@@ -2180,11 +2201,11 @@
             </div>
 
             <div class="modal-section">
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a id="modalLinkBtn" href="#" class="modal-action" style="display: none;" target="_blank">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+                    <a id="modalLinkBtn" href="#" class="modal-action" style="display: none" target="_blank">
                         <i class="fas fa-external-link-alt"></i>View Project
                     </a>
-                    <a id="modalRepoBtn" href="#" class="modal-action" style="display: none;" target="_blank">
+                    <a id="modalRepoBtn" href="#" class="modal-action" style="display: none" target="_blank">
                         <i class="fab fa-github"></i>View Repository
                     </a>
                 </div>
