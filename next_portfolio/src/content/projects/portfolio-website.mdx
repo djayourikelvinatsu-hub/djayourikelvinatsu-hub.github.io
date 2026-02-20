@@ -1,0 +1,42 @@
+---
+title: "Portfolio Website"
+status: "Completed"
+description: "Responsive portfolio showcase with dark mode toggle, smooth animations, intersection observer for scroll effects, and comprehensive mobile responsiveness."
+role: "Frontend Developer"
+duration: "Personal Project"
+techStack: ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Google Fonts"]
+liveUrl: "https://djayourikelvinatsu-hub.github.io/"
+repoUrl: "https://github.com/djayourikelvinatsu-hub/djayourikelvinatsu-hub.github.io"
+---
+
+# Problem Statement & Solution
+I needed a responsive, performant way to showcase my skills and past projects. The initial solution was built with pure HTML, CSS, and Vanilla JavaScript to ensure maximum performance and lack of framework overhead, while strictly adhering to accessibility best practices.
+
+# Technical Architecture
+
+<Mermaid chart={`
+graph TD
+    User([User Device]) --> Browser[Web Browser]
+    Browser --> Static[Static Assets: HTML/CSS/JS]
+    
+    subgraph Frontend Implementation
+        Static --> Layout[Flexbox/Grid Layout]
+        Static --> Theme[Dark/Light Theme Toggle (CSS Variables)]
+        Static --> Animations[CSS Keyframes & Intersection Observer]
+    end
+`} />
+
+# Key Features
+- **Dark Mode Toggle**: Utilizes CSS variables and local storage to persist user preferences.
+- **Smooth Animations**: High-performance CSS transitions triggered via Intersection Observer for lazy loading.
+- **Responsive Design**: Designed to scale flawlessly from 360px mobile screens up to 1920px desktop monitors.
+
+# Performance Impact
+
+Because this was built without a heavy framework, the performance metrics approach near-perfect Lighthouse scores automatically.
+
+| Metric | Score | 
+|--------|-------|
+| **LCP**| < 1.0s |
+| **TTI**| < 1.0s | 
+| **Total Size**| ~65KB |

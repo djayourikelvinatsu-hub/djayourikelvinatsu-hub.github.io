@@ -1,0 +1,34 @@
+---
+title: "The Power of True Black in Web Design"
+date: "2026-02-20"
+description: "Why switching from off-gray to pure black backgrounds can significantly improve contrast and battery life on OLED screens."
+tags: ["Design", "CSS", "Accessibility"]
+---
+
+# Stepping into the Darkness
+
+When deciding on a dark mode color palette, a common trend is to use very dark blue-grays or off-blacks like `#121212` (Material Design's recommendation). However, there is a compelling argument for embracing **True Black** (`#000000`).
+
+## The OLED Advantage
+
+OLED screens work by completely turning off individual pixels that display `#000000`. This leads to two massive benefits:
+1. **Infinite Contrast Ratio:** True black next to pure white creates the highest possible contrast ratio.
+2. **Battery Savings:** Pixels that are turned off consume absolutely zero power.
+
+### Implementation Example
+
+In Tailwind v4, configuring a True Black dark mode can be incredibly simple using CSS variables:
+
+```css
+@layer base {
+  .dark {
+    --background: #000000;
+    --foreground: #ffffff;
+    --card: #0a0a0a; /* Slight elevation for cards */
+  }
+}
+```
+
+By adding a tiny bit of elevation to our cards (`#0a0a0a`), we create depth without sacrificing the sleekness of the true black background.
+
+> Try switching between Light and Dark mode on this portfolio to see the harsh contrast of the True Black theme in action!

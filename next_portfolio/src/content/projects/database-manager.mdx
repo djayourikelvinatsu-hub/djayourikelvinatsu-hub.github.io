@@ -1,0 +1,35 @@
+---
+title: "Database Manager Dashboard"
+status: "In Progress"
+description: "A full-stack CRUD application for managing relational databases with an intuitive, chart-heavy dashboard and automated backups."
+role: "Full Stack Engineer"
+duration: "2024 (Q3 - Q4)"
+techStack: ["React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "Recharts"]
+repoUrl: "https://github.com/"
+---
+
+# Problem Statement & Solution
+Visualizing complex database architectures and data trends can be overwhelming for non-technical stakeholders. 
+The solution is a React-based interface powered by D3.js that takes raw PostgreSQL queries and converts them into interactive, easy-to-digest data visualizations.
+
+# Technical Architecture
+
+<Mermaid chart={`
+graph TD
+    User([Business Analyst]) --> UI[React Dashboard]
+    
+    subgraph Frontend
+        UI --> D3[D3.js Visualization Engine]
+        UI --> QueryBuilder[Custom Query Builder Component]
+    end
+    
+    subgraph Backend
+        QueryBuilder --> API[Node.js / Express API]
+        API --> DB[(PostgreSQL)]
+    end
+`} />
+
+# Key Features
+- **Data Visualization**: Interactive charts (bar, pie, scatter) handling thousands of data points smoothly.
+- **Query Builder**: A visual interface for constructing complex SQL queries without needing to write code.
+- **CSV Export**: Instantly export visualization data or query results to CSV format.

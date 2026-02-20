@@ -1,0 +1,62 @@
+---
+title: "E-Commerce Platform Scalability"
+status: "Completed"
+description: "A complete backend and frontend rewrite of a legacy e-commerce application, focusing on performance and dark mode accessibility."
+role: "Lead Frontend Engineer"
+duration: "4 Months"
+techStack: ["Next.js (App Router)", "React 18", "Tailwind v4", "Zustand"]
+---
+
+# Problem Statement & Solution
+The legacy e-commerce platform suffered from a monolithic architecture and a poorly implemented light mode that caused severe eye strain during long shopping sessions.
+The solution was to perform a complete rebuild utilizing Next.js for server-side rendering, and strictly adhering to a dynamic "True Black" dark mode for accessibility.
+
+# Technical Architecture
+
+<Mermaid chart={`
+graph TD
+    User([User]) --> CDN[CDN / Edge API]
+    CDN --> NextJS[Next.js App Server (Dark Theme Engine)]
+    
+    subgraph Frontend (React Server Components)
+        NextJS --> Pages[App Router]
+        Pages --> ClientDeps[Client Components]
+        ClientDeps --> Zustand[(Local State)]
+    end
+    
+    subgraph Backend Services
+        NextJS --> CMS[Headless CMS]
+        NextJS --> Commerce[Core Commerce Engine]
+    end
+`} />
+
+# Performance Impact
+
+| Metric | Before (Legacy SPA) | After (Next.js SSR) | Improvement |
+|--------|---------------------|---------------------|-------------|
+| **LCP**| 4.2s | 1.1s | 73% Faster |
+| **TTI**| 5.8s | 1.8s | 69% Faster |
+| **Bundle**| 1.8MB (Gzipped) | 340KB (Gzipped) | 81% Smaller |
+
+# Code Snippet: Dark Theme Local Storage Sync
+
+```tsx
+"use client";
+import { useEffect, useState } from 'react';
+
+// Synchronizes the application's True Black theme across tabs
+// without causing layout shifts or hydration errors.
+export function useThemeSync() {
+  const [theme, setTheme] = useState('dark');
+  
+  useEffect(() => {
+    const channel = new BroadcastChannel('theme_sync');
+    channel.onmessage = (e) => {
+       if (e.data.theme) setTheme(e.data.theme);
+    };
+    return () => channel.close();
+  }, []);
+  
+  return theme;
+}
+```
