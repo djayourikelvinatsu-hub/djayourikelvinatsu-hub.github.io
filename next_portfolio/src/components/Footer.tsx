@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, Phone, Code2, MapPin } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Phone, Code2, MapPin, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -29,22 +29,53 @@ export function Footer() {
                                     <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all">
                                         <Mail className="w-4 h-4" />
                                     </div>
-                                    <span className="font-medium">kelvinatsu213@gmail.com</span>
+                                    <span className="font-medium flex flex-col">
+                                        <span className="text-xs text-primary uppercase tracking-wider font-bold mb-0.5">Email</span>
+                                        kelvinatsu213@gmail.com
+                                    </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="tel:+233592921133" className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                                <a href="mailto:kelvinatsu213@icloud.com" className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                                    <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all">
+                                        <MessageCircle className="w-4 h-4" />
+                                    </div>
+                                    <span className="font-medium flex flex-col">
+                                        <span className="text-xs text-primary uppercase tracking-wider font-bold mb-0.5">iMessage</span>
+                                        kelvinatsu213@icloud.com
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:0533776772" className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                                     <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all">
                                         <Phone className="w-4 h-4" />
                                     </div>
-                                    <span className="font-medium">+233 592921133</span>
+                                    <span className="font-medium flex flex-col">
+                                        <span className="text-xs text-primary uppercase tracking-wider font-bold mb-0.5">Call Line</span>
+                                        0533776772
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://wa.me/233592921133" target="_blank" rel="noreferrer" className="group flex items-center gap-3 text-muted-foreground hover:text-emerald-500 transition-colors">
+                                    <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 transition-all">
+                                        <MessageCircle className="w-4 h-4" />
+                                    </div>
+                                    <span className="font-medium flex flex-col">
+                                        <span className="text-xs text-emerald-500 uppercase tracking-wider font-bold mb-0.5">WhatsApp</span>
+                                        +233 592921133
+                                    </span>
                                 </a>
                             </li>
                             <li className="flex items-center gap-3 text-muted-foreground">
                                 <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center">
                                     <MapPin className="w-4 h-4" />
                                 </div>
-                                <span className="font-medium">Accra, Ghana</span>
+                                <span className="font-medium flex flex-col">
+                                    <span className="text-xs text-foreground uppercase tracking-wider font-bold mb-0.5">Location</span>
+                                    Accra, Ghana
+                                </span>
                             </li>
                         </ul>
                     </div>
