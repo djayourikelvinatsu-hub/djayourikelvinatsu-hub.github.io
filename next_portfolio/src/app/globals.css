@@ -18,24 +18,24 @@
 
 @layer base {
   :root {
-    --background: #e2e8f0;
-    --foreground: #0f172a;
+    --background: #ffffff; /* Pure White */
+    --foreground: #0a0a0a; /* Almost Black */
     
-    --primary: #1d4ed8; 
+    --primary: #2563eb; /* Vibrant Blue for white bg */
     --primary-foreground: #ffffff;
     
-    --secondary: #cbd5e1;
+    --secondary: #f1f5f9; /* Slate 100 for subtle contrast */
     --secondary-foreground: #0f172a;
     
-    --muted: #f1f5f9;
-    --muted-foreground: #475569;
+    --muted: #f8fafc; /* Slate 50 */
+    --muted-foreground: #64748b; /* Slate 500 */
     
-    --accent: #cbd5e1;
+    --accent: #f1f5f9;
     --accent-foreground: #0f172a;
     
-    --border: #94a3b8;
+    --border: #e2e8f0; /* Slate 200 */
     
-    --card: #f8fafc;
+    --card: #ffffff; /* Pure White card */
     --card-foreground: #0f172a;
   }
 
