@@ -103,14 +103,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
                 {/* Live Preview Links */}
                 {(project.liveUrl || project.repoUrl) && (
-                    <div className="mt-8 flex gap-4">
+                    <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                         {project.liveUrl && (
-                            <a href={project.liveUrl} target="_blank" rel="noreferrer" className="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                            <a href={project.liveUrl} target="_blank" rel="noreferrer" className="w-full sm:w-auto justify-center bg-primary text-primary-foreground px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                                 <ExternalLink className="w-5 h-5" /> Visit Live Project
                             </a>
                         )}
                         {project.repoUrl && (
-                            <a href={project.repoUrl} target="_blank" rel="noreferrer" className="bg-card border-2 border-border text-foreground px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-muted transition-colors shadow-sm">
+                            <a href={project.repoUrl} target="_blank" rel="noreferrer" className="w-full sm:w-auto justify-center text-center bg-card border-2 border-border text-foreground px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-muted transition-colors shadow-sm">
                                 <Github className="w-5 h-5" /> View Source
                             </a>
                         )}

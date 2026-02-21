@@ -24,12 +24,12 @@ export default function Home() {
           I'm <strong>Kelvin Atsu Djayouri</strong>, a motivated Information Technology student at Accra Technical University and aspiring frontend developer with a passion for creating beautiful, functional web experiences. My journey into web development started when I built my first HTML page in high school. Since then, I've been hooked on the creative and technical aspects of building for the web. I love turning complex problems into simple, elegant solutions.
         </p>
 
-        <div className="flex gap-4 items-center">
-          <Link href="/projects" className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-primary/90 transition-all hover:scale-105 shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <Link href="/projects" className="w-full sm:w-auto justify-center bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-primary/90 transition-all hover:scale-105 shadow-[0_0_20px_rgba(59,130,246,0.5)]">
             Explore Architecture
             <ArrowRight className="w-5 h-5" />
           </Link>
-          <a href="https://github.com/djayourikelvinatsu-hub" target="_blank" rel="noreferrer" className="bg-card border-2 border-border text-foreground px-8 py-4 rounded-xl font-bold hover:bg-muted transition-colors shadow-sm">
+          <a href="https://github.com/djayourikelvinatsu-hub" target="_blank" rel="noreferrer" className="w-full sm:w-auto justify-center text-center bg-card border-2 border-border text-foreground px-8 py-4 rounded-xl font-bold hover:bg-muted transition-colors shadow-sm">
             GitHub Profile
           </a>
         </div>

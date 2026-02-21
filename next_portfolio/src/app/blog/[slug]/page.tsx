@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Back to all articles
                 </Link>
-                <div className="flex items-center gap-3 text-sm text-primary font-semibold mb-4 tracking-wide uppercase">
+                <div className="flex flex-wrap items-center gap-3 text-sm text-primary font-semibold mb-4 tracking-wide uppercase">
                     <time dateTime={post.date as string}>
                         {new Date(post.date as string).toLocaleDateString("en-US", {
                             month: "long",
@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         })}
                     </time>
                     {post.tags && (post.tags as string[]).length > 0 && (
-                        <div className="flex gap-2 items-center">
+                        <div className="flex flex-wrap gap-2 items-center">
                             <span className="text-muted-foreground">•</span>
                             {(post.tags as string[]).map(tag => (
                                 <span key={tag} className="bg-primary/10 px-2 py-0.5 rounded text-primary">{tag}</span>
